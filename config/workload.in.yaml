@@ -1,4 +1,3 @@
----
 apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
@@ -19,15 +18,15 @@ spec:
         type: openapi
         location:
           path: "/app/static/openapi.json"
-          baseUrl: "https://image-processor-api.default.${DATA_E2E_BASE_URL}"
+          baseUrl: "https://image-processor-api.default.tap-test.egedsoft.co.il"
         system: image-processors
         owner: team-image-processors
         description: "A set of API endpoints for the ML Image Processing Demo App."
   env:
     - name: MLFLOW_TRACKING_URI
-      value: http://mlflow.${DATA_E2E_BASE_URL}
+      value: http://mlflow.tap-test.egedsoft.co.il
     - name: STREAMLIT_SERVER_ENABLE_STATIC_SERVING
-      value: true
+      value: "true"
   source:
     git:
       url: https://github.com/agapebondservant/ml-image-processing-app.git
